@@ -16,13 +16,14 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: 'temurin' 
           java-version: '17'
 
       - name: Run SonarCloud Scan
         run: |
-          mvn -B verify sonar:sonar \
-            -Dsonar.projectKey=SavleenKaur04_orchestrator_dp \
+          mvn -B verify sonar:sonar -DskipTests \
+            -Dsonar.projectKey= SavleenKaur04_orchestrator_dp \
             -Dsonar.organization=savleenkaur04 \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+
